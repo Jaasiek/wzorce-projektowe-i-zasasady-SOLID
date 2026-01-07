@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from functools import wraps
 
 # from typing import List
 
@@ -64,7 +63,6 @@ class WithSummaryStatisticsLogger(StatisticsLogger):
 
 
 def with_mean(func):
-    @wraps(func)
     def wrapper(self) -> None:
         times = self.get_execution_times()
         mean = sum(times) / len(times) if times else 0
